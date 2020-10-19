@@ -28,33 +28,5 @@ public class Profesor extends Autor{
         super(dni,apellidos,nombres,clave);
         this.cargo = cargo;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + this.verDni();
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Profesor other = (Profesor) obj;
-        if (this.verDni() != other.verDni()) {
-            return false;
-        }
-        return true;
-    }
-
-    
-    
     
 }

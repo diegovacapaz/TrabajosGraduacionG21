@@ -51,6 +51,31 @@ public abstract class Autor {
         this.nombres = nombres;
         this.clave = clave;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + this.dni;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (this.getClass().getSuperclass() != obj.getClass().getSuperclass()) {
+            return false;
+        }
+        final Autor other = (Autor) obj;
+        if (this.dni != other.dni) {
+            return false;
+        }
+        return true;
+    }
     
     
 }
