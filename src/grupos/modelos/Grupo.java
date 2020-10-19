@@ -29,9 +29,18 @@ public class Grupo {
     }
     
     public void mostrar(){
+        System.out.println("--------Grupo--------");
         System.out.println("Grupo:");
         System.out.println("Nombre: "+nombre);
         System.out.println("Descripcion: "+descripcion);
+        System.out.println("--------Miembros--------");
+        for(MiembroEnGrupo p : this.miembrosEnGrupo){
+            p.verAutor().mostrar();
+            if(p.verRol()==Rol.ADMINISTRADOR)
+                System.out.println("Rol: Administrador");
+            else
+                System.out.println("Rol: Colaborador");
+        }
     }
 
     public Grupo(String nombre, String descripcion) {
@@ -84,11 +93,15 @@ public class Grupo {
     } //Falta lo de quitarle el grupo al autor
     
     public boolean esSuperAdministradores(){
-        for(MiembroEnGrupo p : miembrosEnGrupo){
+        for(MiembroEnGrupo p : this.miembrosEnGrupo){
             if(p.verRol()==Rol.COLABORADOR)
                 return false;
         }
         return true;
+    }
+    
+    public boolean tieneMiembros(){
+        return !this.miembrosEnGrupo.isEmpty(); //Retorna true si hay miembros
     }
     
 }
