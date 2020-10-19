@@ -1,6 +1,7 @@
 
 package grupos.modelos;
 
+import autores.modelos.Autor;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -62,6 +63,32 @@ public class Grupo {
         }
         return true;
     }
+
+    public ArrayList<MiembroEnGrupo> verMiembros() {
+        return miembrosEnGrupo;
+    }
+
+    public void agregarMiembro(Autor autor, Rol rol) {
+        MiembroEnGrupo miembro = new MiembroEnGrupo(autor,this, rol);
+        if(!this.miembrosEnGrupo.contains(miembro)){
+            this.miembrosEnGrupo.add(miembro);
+        }            
+    }//Falta lo de agregarGrupo()
     
+    public void quitarMiembro(Autor miembro) {
+        for(MiembroEnGrupo p : this.miembrosEnGrupo){
+            if(p.verAutor().equals(miembro))
+                miembrosEnGrupo.remove(p);
+        }
+        
+    } //Falta lo de quitarle el grupo al autor
+    
+    public boolean esSuperAdministradores(){
+        for(MiembroEnGrupo p : miembrosEnGrupo){
+            if(p.verRol()==Rol.COLABORADOR)
+                return false;
+        }
+        return true;
+    }
     
 }
