@@ -70,7 +70,7 @@ public class Publicacion {
     
     public void mostrar(){
         System.out.println("Titulo: "+titulo);
-        System.out.println("Autor: "+miembroengrupo.verProfesor().verApellidos()+", "+miembroengrupo.verProfesor().verNombres());
+        System.out.println("Autor: "+miembroengrupo.verAutor().verApellidos()+", "+miembroengrupo.verAutor().verNombres());
         System.out.println("Grupo: "+miembroengrupo.verGrupo().verNombre());
         System.out.println("Rol: "+miembroengrupo.verRol());
         System.out.println("Fecha de Publicacion: "+ fechaPublicacion.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));

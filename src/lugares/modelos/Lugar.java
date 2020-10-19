@@ -15,6 +15,7 @@ public class Lugar {
         this.nombre = nombre;
     }
     
+    @Override
     public String toString() {
         return "Lugar: " + nombre;
     }

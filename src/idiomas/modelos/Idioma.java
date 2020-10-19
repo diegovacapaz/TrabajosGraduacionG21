@@ -15,6 +15,7 @@ public class Idioma {
         this.nombre = nombre;
     }
 
+    @Override
     public String toString() {
         return "Idioma: " + nombre;
     }

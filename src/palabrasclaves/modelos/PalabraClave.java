@@ -15,6 +15,7 @@ public class PalabraClave {
         this.nombre = nombre;
     }
     
+    @Override
     public String toString() {
         return "Palabra Clave: " + nombre;
     }

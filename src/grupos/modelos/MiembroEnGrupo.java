@@ -1,26 +1,27 @@
 
 package grupos.modelos;
 
+import autores.modelos.Autor;
 import autores.modelos.Profesor;
 
 
 public class MiembroEnGrupo {
-    private Profesor profesor;
+    private Autor autor;
     private Rol rol;
     private Grupo grupo;
 
-    public MiembroEnGrupo(Profesor profesor,Grupo grupo, Rol rol) {
-        this.profesor = profesor;
+    public MiembroEnGrupo(Autor autor,Grupo grupo, Rol rol) {
+        this.autor = autor;
         this.rol = rol;
         this.grupo = grupo;
     }
 
-    public Profesor verProfesor() {
-        return profesor;
+    public Autor verAutor() {
+        return autor;
     }
 
-    public void asignarProfesor(Profesor profesor) {
-        this.profesor = profesor;
+    public void asignarAutor(Autor autor) {
+        this.autor = autor;
     }
 
     public Grupo verGrupo() {
