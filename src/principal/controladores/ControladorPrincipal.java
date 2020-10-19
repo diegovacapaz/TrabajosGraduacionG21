@@ -34,7 +34,7 @@ import tipos.vistas.VentanaATipo;
 public class ControladorPrincipal {
     public static void main(String[] args) {
     
-     //<editor-fold defaultstate="collapsed" desc="Sin intefaz gráfica"> 
+    //<editor-fold defaultstate="collapsed" desc="Sin intefaz gráfica"> 
         ArrayList<Grupo> grupos = new ArrayList<>();
         ArrayList<Alumno> alumnos = new ArrayList<>();
         ArrayList<Profesor> profesores = new ArrayList<>();
@@ -231,7 +231,7 @@ public class ControladorPrincipal {
         }
 
       //</editor-fold>   
-     //<editor-fold defaultstate="collapsed" desc="Intefaz gráfica"> 
+    //<editor-fold defaultstate="collapsed" desc="Intefaz gráfica"> 
         VentanaAMGrupo ventanaGrupo = new VentanaAMGrupo(null); //se instancia la ventana
 
         ventanaGrupo.setLocationRelativeTo(null); //se centra la ventana
@@ -264,5 +264,7 @@ public class ControladorPrincipal {
 
 
      //</editor-fold>
+    
+     
     }
 }

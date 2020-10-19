@@ -6,6 +6,7 @@ import idiomas.modelos.Idioma;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Objects;
 import lugares.modelos.Lugar;
 import palabrasclaves.modelos.PalabraClave;
 import tipos.modelos.Tipo;
@@ -85,5 +86,31 @@ public class Publicacion {
         System.out.println("Enlace: "+enlace);
         System.out.println("Resumen: "+resumen);
     }  
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 13 * hash + Objects.hashCode(this.titulo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Publicacion other = (Publicacion) obj;
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        return true;
+    }
+    
     
 }
