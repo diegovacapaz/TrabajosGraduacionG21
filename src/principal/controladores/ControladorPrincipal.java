@@ -165,8 +165,8 @@ public class ControladorPrincipal {
         quitarle 1 y mostrarlo, verificando que el autor 
         ya no es miembro del grupo.
         */
-//        grupo1.quitarMiembro(profesor1);
-//        grupo1.mostrar();
+        grupo1.quitarMiembro(profesor1);
+        grupo1.mostrar();
 
         /*
         Crear un nuevo grupo para los super administradores. 

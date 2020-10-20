@@ -79,10 +79,19 @@ public class Grupo {
 
     public void agregarMiembro(Autor autor, Rol rol) {
         MiembroEnGrupo miembro = new MiembroEnGrupo(autor,this, rol);
-        if(!(this.miembrosEnGrupo.contains(miembro))){
-            this.miembrosEnGrupo.add(miembro);
-            miembro.verAutor().agregarGrupo(this, rol);
-        }            
+        if(miembro.verGrupo().verNombre()=="Super Administradores"){
+            if(!this.miembrosEnGrupo.contains(miembro)){
+                miembro.asignarRol(Rol.ADMINISTRADOR);
+                this.miembrosEnGrupo.add(miembro);
+                miembro.verAutor().agregarGrupo(this, Rol.ADMINISTRADOR);
+            }
+        }
+        else{    
+            if(!(this.miembrosEnGrupo.contains(miembro))){
+                this.miembrosEnGrupo.add(miembro);
+                miembro.verAutor().agregarGrupo(this, rol);
+            }
+        }
     }
     
     public void quitarMiembro(Autor miembro) {
