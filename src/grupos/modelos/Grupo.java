@@ -10,7 +10,7 @@ public class Grupo {
     private String nombre;
     private String descripcion;
     
-    private ArrayList<MiembroEnGrupo> miembrosEnGrupo;
+    private ArrayList<MiembroEnGrupo> miembrosEnGrupo = new ArrayList<>();
 
     public String verNombre() {
         return nombre;

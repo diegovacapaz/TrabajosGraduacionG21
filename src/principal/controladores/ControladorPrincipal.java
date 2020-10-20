@@ -152,15 +152,21 @@ public class ControladorPrincipal {
         profesor1.agregarGrupo(grupo2, Rol.COLABORADOR);
         profesor1.agregarGrupo(grupo2, Rol.ADMINISTRADOR); //grupo repetido
         alumno1.mostrar();
-        profesor2.mostrar();
+           // grupo2.agregarMiembro(profesor1, Rol.ADMINISTRADOR);
+        profesor1.mostrar();
         
+        System.out.println("Prueba---------");
+        grupo1.mostrar();
+        System.out.println("Prueba---------");
+        grupo2.mostrar();
+        System.out.println("Prueba---------");
         /*
         Tomar el grupo al que se le agregaron los 2 autores como miembros, 
         quitarle 1 y mostrarlo, verificando que el autor 
         ya no es miembro del grupo.
         */
-        grupo1.quitarMiembro(profesor1);
-        grupo1.mostrar();
+//        grupo1.quitarMiembro(profesor1);
+//        grupo1.mostrar();
 
         /*
         Crear un nuevo grupo para los super administradores. 

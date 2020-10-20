@@ -13,7 +13,7 @@ public abstract class Autor {
     private String nombres;
     private String clave;
     
-    private ArrayList<MiembroEnGrupo> miembrosEnGrupo;
+    private ArrayList<MiembroEnGrupo> miembrosEnGrupo = new ArrayList<>();
 
     public ArrayList<MiembroEnGrupo> verGrupos() {
         return miembrosEnGrupo;
@@ -21,9 +21,9 @@ public abstract class Autor {
 
     public void agregarGrupo(Grupo grupo, Rol rol) {
         MiembroEnGrupo miembro = new MiembroEnGrupo(this,grupo,rol);
-        if(!this.miembrosEnGrupo.contains(miembro)){
+        if(!(this.miembrosEnGrupo.contains(miembro))){
             this.miembrosEnGrupo.add(miembro);
-            grupo.agregarMiembro(this, rol);
+            miembro.verGrupo().agregarMiembro(this, rol);
         }
     }
     
@@ -81,8 +81,8 @@ public abstract class Autor {
         System.out.println("["+dni+"]"+apellidos+", "+nombres);
         System.out.println("--Grupos a los que pertenece--");
         for(MiembroEnGrupo p : miembrosEnGrupo){
-            System.out.println("Grupo: "+p.verGrupo().verNombre());
-            System.out.println("Descripcion: "+p.verGrupo().verDescripcion());
+            System.out.println("Grupo: "+ p.verGrupo().verNombre());
+            System.out.println("Descripcion: "+ p.verGrupo().verDescripcion());
             if(p.verRol()==Rol.ADMINISTRADOR)
                 System.out.println("Rol: Administrador");
             else
