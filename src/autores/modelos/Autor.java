@@ -19,9 +19,23 @@ public abstract class Autor {
         return miembrosEnGrupo;
     }
 
-    public void agregarGrupo(Grupo grupo, Rol rol) {
-        MiembroEnGrupo miembro = new MiembroEnGrupo(this,grupo,rol);
-        if(!(this.miembrosEnGrupo.contains(miembro))){
+//    public void agregarGrupo(Grupo grupo, Rol rol) {
+//        MiembroEnGrupo miembro = new MiembroEnGrupo(this,grupo,rol);
+//        if(!(this.miembrosEnGrupo.contains(miembro))){
+//            this.miembrosEnGrupo.add(miembro);
+//            miembro.verGrupo().agregarMiembro(this, rol);
+//        }
+//    } Funcionaba mal debido a que (MiembroEnGrupo)Contains analiza autores y aca siempre es el mismo autor
+    
+    public void agregarGrupo(Grupo grupo, Rol rol){
+        MiembroEnGrupo miembro = new MiembroEnGrupo (this,grupo,rol);
+        int contador = 0;
+        for(MiembroEnGrupo p: miembrosEnGrupo){
+            if(p.verGrupo().equals(miembro.verGrupo())){
+                contador++;
+            }            
+        }
+        if(contador==0){
             this.miembrosEnGrupo.add(miembro);
             miembro.verGrupo().agregarMiembro(this, rol);
         }

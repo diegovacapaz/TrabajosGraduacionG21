@@ -35,10 +35,10 @@ public class Grupo {
         System.out.println("--------Miembros--------");
         for(MiembroEnGrupo p : this.miembrosEnGrupo){
             p.verAutor().mostrar();
-            if(p.verRol()==Rol.ADMINISTRADOR)
-                System.out.println("Rol: Administrador");
-            else
-                System.out.println("Rol: Colaborador");
+//            if(p.verRol()==Rol.ADMINISTRADOR)
+//                System.out.println("Rol: Administrador");
+//            else
+//                System.out.println("Rol: Colaborador");
         }
         
     }

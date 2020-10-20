@@ -152,7 +152,7 @@ public class ControladorPrincipal {
         profesor1.agregarGrupo(grupo2, Rol.COLABORADOR);
         profesor1.agregarGrupo(grupo2, Rol.ADMINISTRADOR); //grupo repetido
         alumno1.mostrar();
-           // grupo2.agregarMiembro(profesor1, Rol.ADMINISTRADOR);
+        
         profesor1.mostrar();
         
         System.out.println("Prueba---------");
