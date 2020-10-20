@@ -1,13 +1,49 @@
 
 package autores.modelos;
 
+import grupos.modelos.Grupo;
+import grupos.modelos.MiembroEnGrupo;
+import grupos.modelos.Rol;
+import java.util.ArrayList;
+
 
 public abstract class Autor {
     private int dni;
     private String apellidos;
     private String nombres;
     private String clave;
+    
+    private ArrayList<MiembroEnGrupo> miembrosEnGrupo;
 
+    public ArrayList<MiembroEnGrupo> verGrupos() {
+        return miembrosEnGrupo;
+    }
+
+    public void agregarGrupo(Grupo grupo, Rol rol) {
+        MiembroEnGrupo miembro = new MiembroEnGrupo(this,grupo,rol);
+        if(!this.miembrosEnGrupo.contains(miembro)){
+            this.miembrosEnGrupo.add(miembro);
+            grupo.agregarMiembro(this, rol);
+        }
+    }
+    
+    public void quitarGrupo(Grupo grupo){
+        for(MiembroEnGrupo p : miembrosEnGrupo){
+            if(p.verGrupo().equals(grupo)){
+                this.miembrosEnGrupo.remove(p);
+                p.verGrupo().quitarMiembro(this);
+            }
+        }
+    }
+    
+    public boolean esSuperAdministrador(){
+        for(MiembroEnGrupo p : miembrosEnGrupo){
+            if(p.verGrupo().esSuperAdministradores())
+                return true;
+        }
+        return false;
+    }
+        
     public int verDni() {
         return dni;
     }
@@ -43,6 +79,15 @@ public abstract class Autor {
     public void mostrar(){
         System.out.println("Datos Autor: ");
         System.out.println("["+dni+"]"+apellidos+", "+nombres);
+        System.out.println("--Grupos a los que pertenece--");
+        for(MiembroEnGrupo p : miembrosEnGrupo){
+            System.out.println("Grupo: "+p.verGrupo().verNombre());
+            System.out.println("Descripcion: "+p.verGrupo().verDescripcion());
+            if(p.verRol()==Rol.ADMINISTRADOR)
+                System.out.println("Rol: Administrador");
+            else
+                System.out.println("Rol: Colaborador");
+        }
     }
 
     public Autor(int dni, String apellidos, String nombres, String clave) {

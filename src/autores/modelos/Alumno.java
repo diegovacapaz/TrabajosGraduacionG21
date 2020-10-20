@@ -1,6 +1,7 @@
 
 package autores.modelos;
 
+import grupos.modelos.MiembroEnGrupo;
 import java.util.Objects;
 
 
@@ -18,7 +19,9 @@ public class Alumno extends Autor {
     @Override
     public void mostrar(){
         super.mostrar();
+        System.out.println("--------");
         System.out.println("Libreta: "+cx);
+        System.out.println("--------");
     }
 
     public Alumno(int dni, String apellidos, String nombres, String clave, String cx) {

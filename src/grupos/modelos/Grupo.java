@@ -30,7 +30,6 @@ public class Grupo {
     
     public void mostrar(){
         System.out.println("--------Grupo--------");
-        System.out.println("Grupo:");
         System.out.println("Nombre: "+nombre);
         System.out.println("Descripcion: "+descripcion);
         System.out.println("--------Miembros--------");
@@ -41,6 +40,7 @@ public class Grupo {
             else
                 System.out.println("Rol: Colaborador");
         }
+        
     }
 
     public Grupo(String nombre, String descripcion) {
@@ -79,18 +79,21 @@ public class Grupo {
 
     public void agregarMiembro(Autor autor, Rol rol) {
         MiembroEnGrupo miembro = new MiembroEnGrupo(autor,this, rol);
-        if(!this.miembrosEnGrupo.contains(miembro)){
+        if(!(this.miembrosEnGrupo.contains(miembro))){
             this.miembrosEnGrupo.add(miembro);
+            miembro.verAutor().agregarGrupo(this, rol);
         }            
-    }//Falta lo de agregarGrupo()
+    }
     
     public void quitarMiembro(Autor miembro) {
         for(MiembroEnGrupo p : this.miembrosEnGrupo){
-            if(p.verAutor().equals(miembro))
-                miembrosEnGrupo.remove(p);
+            if(p.verAutor().equals(miembro)){
+                this.miembrosEnGrupo.remove(p);
+                p.verAutor().quitarGrupo(this);
+            }
         }
         
-    } //Falta lo de quitarle el grupo al autor
+    }
     
     public boolean esSuperAdministradores(){
         for(MiembroEnGrupo p : this.miembrosEnGrupo){
